@@ -13,10 +13,9 @@ import Chanterelle.Internal.Utils.FS as Utils.FS
 
 import Prelude
 import Chanterelle.Internal.Types (ContractConfig, DeployConfig(..), DeployError(..))
-import Control.Monad.Aff (Aff, Milliseconds(..), delay)
-import Control.Monad.Aff.Class (class MonadAff, liftAff)
-import Control.Monad.Aff.Console (CONSOLE)
-import Control.Monad.Eff.Exception (error)
+import Effect.Aff (Aff, Milliseconds(..), delay)
+import Effect.Aff.Class (class MonadAff, liftAff)
+import Effect.Exception (error)
 import Control.Monad.Error.Class (class MonadThrow, throwError)
 import Control.Parallel (parOneOf)
 import Data.Either (Either(..))

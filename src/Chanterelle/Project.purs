@@ -2,8 +2,8 @@ module Chanterelle.Project (loadProject) where
 
 import Prelude
 import Chanterelle.Internal.Types.Project (ChanterelleProject(..), ChanterelleProjectSpec(..), ChanterelleModule(..))
-import Control.Monad.Aff.Class (class MonadAff, liftAff)
-import Control.Monad.Eff.Exception (Error, error)
+import Effect.Aff.Class (class MonadAff, liftAff)
+import Effect.Exception (Error, error)
 import Control.Monad.Error.Class (class MonadThrow, throwError)
 import Data.Argonaut as A
 import Data.Argonaut.Parser as AP

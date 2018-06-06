@@ -8,8 +8,7 @@ import Data.Argonaut (class EncodeJson, class DecodeJson, encodeJson, decodeJson
 import Data.Array (elem, filter, null)
 import Data.Either (Either(..))
 import Data.Maybe (Maybe, fromMaybe)
-import Data.Monoid (class Monoid, mempty)
-import Data.StrMap as M
+import Data.Map as M
 import Data.String (Pattern(..), joinWith, split)
 import Data.Traversable (for)
 import Data.Tuple (Tuple(..))

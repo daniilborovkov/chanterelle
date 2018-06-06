@@ -2,11 +2,10 @@ module Chanterelle.Internal.Types.Deploy where
 
 import Prelude
 
-import Control.Monad.Aff (Aff, Fiber, Milliseconds, forkAff, liftEff', joinFiber)
-import Control.Monad.Aff.Class (class MonadAff, liftAff)
-import Control.Monad.Aff.Console (CONSOLE)
-import Control.Monad.Eff.Class (class MonadEff)
-import Control.Monad.Eff.Exception (Error, throwException)
+import Effect.Aff (Aff, Fiber, Milliseconds, forkAff, liftEff', joinFiber)
+import Effect.Aff.Class (class MonadAff, liftAff)
+import Effect.Class (class MonadEff)
+import Effect.Exception (Error, throwException)
 import Control.Monad.Error.Class (class MonadThrow)
 import Control.Monad.Except (ExceptT, runExceptT)
 import Control.Monad.Reader (ReaderT, runReaderT)

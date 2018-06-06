@@ -5,11 +5,10 @@ import Prelude
 import Chanterelle.Internal.Logging (LogLevel(..), log)
 import Chanterelle.Internal.Types.Deploy (DeployError(..))
 import Chanterelle.Internal.Types.Project (Network(..), networkIDFitsChainSpec)
-import Control.Monad.Aff (Milliseconds(..), delay)
-import Control.Monad.Aff.Class (class MonadAff, liftAff)
-import Control.Monad.Aff.Console (CONSOLE)
-import Control.Monad.Eff.Class (class MonadEff, liftEff)
-import Control.Monad.Eff.Exception (error, try)
+import Effect.Aff (Milliseconds(..), delay)
+import Effect.Aff.Class (class MonadAff, liftAff)
+import Effect.Class (class MonadEff, liftEff)
+import Effect.Exception (error, try)
 import Control.Monad.Error.Class (class MonadThrow, throwError)
 import Control.Monad.Except (ExceptT(..), except, runExceptT, withExceptT)
 import Control.Parallel (parOneOf)
@@ -26,8 +25,8 @@ import Network.Ethereum.Web3.Types.Provider (Provider, httpProvider)
 -- | Make an http provider with address given by NODE_URL, falling back
 -- | to localhost.
 makeProvider
-  :: forall eff m.
-     MonadEff (eth :: ETH | eff) m
+  :: forall m.
+     MonadEffect m
   => MonadThrow DeployError m
   => String
   -> m Provider
@@ -41,8 +40,8 @@ providerForNetwork :: forall eff m. MonadEff eff m => Network -> m Provider
 providerForNetwork (Network network) = liftEff $ httpProvider network.providerUrl
 
 resolveProvider
-  :: forall eff m.
-     MonadAff (eth :: ETH | eff) m
+  :: forall m.
+     MonadAff m
   => Network
   -> m (Either String Provider)
 resolveProvider rn@(Network realNet) = runExceptT do
@@ -61,8 +60,8 @@ resolveProvider rn@(Network realNet) = runExceptT do
           NullError     -> "Web3 NullError"
 
 getCodeForContract
-  :: forall eff m.
-     MonadAff (eth :: ETH | eff) m
+  :: forall m.
+     MonadAff m
   => Address
   -> Provider
   -> m (Either String HexString)
@@ -75,8 +74,8 @@ getCodeForContract addr provider = runExceptT do
                   else pure hs
 
 resolveCodeForContract
-  :: forall eff m
-   . MonadAff (eth :: ETH | eff) m
+  :: forall m
+   . MonadAff m
   => Network
   -> Address
   -> m (Either String HexString)

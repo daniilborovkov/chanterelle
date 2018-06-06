@@ -8,8 +8,8 @@ import Chanterelle.Internal.Utils.Json
 import Data.Argonaut (class DecodeJson, class EncodeJson, (:=), (~>), (.?), (.??), decodeJson, encodeJson, jsonEmptyObject)
 import Data.Array (catMaybes)
 import Data.Maybe (Maybe, maybe)
-import Data.StrMap (StrMap)
-import Data.StrMap as M
+import Data.Map (Map)
+import Data.Map as M
 import Data.Traversable (for)
 import Data.Tuple (Tuple(..))
 import Network.Ethereum.Web3 (Address, BigNumber, BlockNumber, HexString, mkHexString, unAddress, unHex)

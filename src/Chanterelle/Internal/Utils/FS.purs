@@ -3,9 +3,9 @@ module Chanterelle.Internal.Utils.FS where
 import Prelude
 import Chanterelle.Internal.Types.Compile (CompileError(..))
 import Chanterelle.Internal.Logging (LogLevel(..), log)
-import Control.Monad.Aff (Milliseconds)
-import Control.Monad.Aff.Class (class MonadAff, liftAff)
-import Control.Monad.Eff.Class (liftEff)
+import Effect.Aff (Milliseconds)
+import Effect.Aff.Class (class MonadAff, liftAff)
+import Effect.Class (liftEffect)
 import Control.Monad.Error.Class (class MonadThrow, throwError)
 import Data.DateTime.Instant (fromDateTime, unInstant)
 import Node.FS.Aff as FS

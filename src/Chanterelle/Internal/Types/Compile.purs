@@ -5,18 +5,17 @@ import Chanterelle.Internal.Types.Project (ChanterelleProject, Library(..), Libr
 import Chanterelle.Internal.Utils.Json (encodeJsonAddress)
 import Data.Argonaut (class DecodeJson, class EncodeJson, (:=), (~>), (.?), (.??), decodeJson, encodeJson, jsonEmptyObject)
 import Data.Argonaut as A
-import Control.Monad.Aff (Aff, Milliseconds(..))
-import Control.Monad.Aff.Class (class MonadAff)
-import Control.Monad.Aff.Console (CONSOLE)
-import Control.Monad.Eff.Class (class MonadEff)
+import Effect.Aff (Aff, Milliseconds(..))
+import Effect.Aff.Class (class MonadAff)
+import Effect.Class (class MonadEff)
 import Control.Monad.Error.Class (class MonadThrow)
 import Control.Monad.Except (ExceptT, runExceptT)
 import Control.Monad.Reader (ReaderT, runReaderT)
 import Control.Monad.Reader.Class (class MonadAsk)
 import Data.Either (Either)
 import Data.Maybe (fromMaybe)
-import Data.StrMap (StrMap)
-import Data.StrMap as M
+import Data.Map (Map)
+import Data.Map as M
 import Data.Traversable (for, traverse)
 import Data.Tuple (Tuple(..))
 import Node.FS (FS)

@@ -18,11 +18,10 @@ import Chanterelle.Internal.Types.Genesis as Genesis
 import Chanterelle.Internal.Types.Project (Network(..))
 import Chanterelle.Internal.Utils.Time (now, toISOString)
 import Control.Logger as Logger
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Class (liftEff, class MonadEff)
-import Control.Monad.Eff.Console (CONSOLE)
-import Control.Monad.Eff.Console as Console
-import Control.Monad.Eff.Unsafe (unsafeCoerceEff)
+import Effect (Effect)
+import Effect.Class (liftEffect, class MonadEffect)
+import Effect.Console as Console
+import Effect.Unsafe (unsafeCoerceEff)
 import Data.String (toUpper)
 import Data.Traversable (for_)
 import Data.Tuple (Tuple(..))
